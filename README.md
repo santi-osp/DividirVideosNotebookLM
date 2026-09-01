@@ -4,16 +4,19 @@ Aplicación web 100% del lado del cliente para dividir uno o varios videos en pa
 
 ## Uso inmediato
 
-No necesita backend ni build. Sirve esta carpeta con cualquier hosting estático o servidor HTTP local. Por ejemplo:
+No necesita backend. Sirve esta carpeta con cualquier hosting estático o servidor HTTP local. Por ejemplo:
 
     python -m http.server 8080
 
 Luego abre `http://localhost:8080`.
 
-También puedes usar Vite si prefieres:
+## GitHub Pages
 
-    npm install
-    npm run dev
+Esta versión incluye `src/ffmpeg-worker.js` y `src/ffmpeg-wrapper.js` para que el Web Worker de `@ffmpeg/ffmpeg` se cargue desde el mismo origen de GitHub Pages. Esto evita el error del navegador:
+
+    Failed to construct 'Worker': Script at 'https://cdn.jsdelivr.net/.../worker.js' cannot be accessed from origin 'https://<usuario>.github.io'
+
+El core y el WASM siguen descargándose desde jsDelivr, pero los videos nunca se suben a un servidor.
 
 ## Funciones
 
@@ -27,4 +30,4 @@ También puedes usar Vite si prefieres:
 
 ## Nota
 
-El core de FFmpeg (~31 MB) se descarga desde jsDelivr al iniciar el primer procesamiento. Los videos permanecen en tu navegador. Para archivos muy grandes usa **1 a la vez** para reducir consumo de memoria.
+Para archivos muy grandes usa **1 a la vez** para reducir consumo de memoria.
