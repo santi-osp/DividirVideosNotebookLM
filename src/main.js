@@ -5,6 +5,8 @@ import { fetchFile, toBlobURL } from '@ffmpeg/util';
 const MB = 1024 * 1024;
 const MAX_BROWSER_FILE_BYTES = 2 * 1024 * 1024 * 1024;
 const CORE_BASE_URL = 'https://cdn.jsdelivr.net/npm/@ffmpeg/core@0.12.10/dist/esm';
+const CLASS_WORKER_URL = new URL('./ffmpeg-worker.js', import.meta.url).href;
+let ffmpegAssetsPromise = null;
 
 const state = {
   items: [],
@@ -211,6 +213,19 @@ function render() {
 let renderTimer=null;
 function renderThrottled(){ if(renderTimer)return; renderTimer=setTimeout(()=>{renderTimer=null;render()},140); }
 
+async function getFFmpegAssets() {
+  if (!ffmpegAssetsPromise) {
+    ffmpegAssetsPromise = Promise.all([
+      toBlobURL(`${CORE_BASE_URL}/ffmpeg-core.js`,'text/javascript'),
+      toBlobURL(`${CORE_BASE_URL}/ffmpeg-core.wasm`,'application/wasm')
+    ]).catch(error => {
+      ffmpegAssetsPromise = null;
+      throw error;
+    });
+  }
+  return ffmpegAssetsPromise;
+}
+
 async function createFFmpeg(item) {
   item.status='loading'; item.statusText='Cargando motor de video…'; item.progress=2; render();
   const ffmpeg=new FFmpeg(); state.activeRunners.add(ffmpeg);
@@ -219,11 +234,9 @@ async function createFFmpeg(item) {
     const m=message.match(/time=(\d+):(\d+):(\d+(?:\.\d+)?)/);
     if(m&&Number.isFinite(item.duration)&&item.duration>0){ const s=Number(m[1])*3600+Number(m[2])*60+Number(m[3]); item.progress=Math.max(item.progress,Math.min(96,8+(s/item.duration)*88)); renderThrottled(); }
   });
-  const [coreURL,wasmURL]=await Promise.all([
-    toBlobURL(`${CORE_BASE_URL}/ffmpeg-core.js`,'text/javascript'),
-    toBlobURL(`${CORE_BASE_URL}/ffmpeg-core.wasm`,'application/wasm')
-  ]);
-  await ffmpeg.load({coreURL,wasmURL}); return ffmpeg;
+  const [coreURL,wasmURL]=await getFFmpegAssets();
+  await ffmpeg.load({coreURL,wasmURL,classWorkerURL:CLASS_WORKER_URL});
+  return ffmpeg;
 }
 
 function parseProgressDuration(text) {
