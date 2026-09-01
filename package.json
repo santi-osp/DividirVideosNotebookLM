@@ -1,0 +1,1 @@
+{"name":"video-split-studio","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},"dependencies":{"@ffmpeg/ffmpeg":"0.12.15","@ffmpeg/util":"0.12.2"},"devDependencies":{"vite":"^7.1.3"}}
