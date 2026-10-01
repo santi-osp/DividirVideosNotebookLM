@@ -15,3 +15,36 @@
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}@keyframes itemIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{50%{opacity:.35;box-shadow:0 0 0 4px rgba(166,255,77,.08)}}@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:760px){.topbar{padding:20px 18px 0}.privacy-pill span{display:none}.shell{width:min(100% - 20px,1080px);padding-top:58px}.hero{margin-bottom:32px}.hero h1{font-size:clamp(40px,13vw,58px)}.hero p{font-size:15px;padding:0 8px}.dropzone{margin:10px;min-height:220px;padding:24px 16px}.control-panel{grid-template-columns:1fr;gap:18px;padding:20px}.divider{width:auto;height:1px}.queue-section{padding:22px 16px 6px}.queue-item{grid-template-columns:36px 1fr;padding:12px;gap:10px}.file-icon{width:36px;height:36px}.status-badge{display:none}.file-title{max-width:58vw}.action-bar{align-items:stretch;flex-direction:column;padding:14px 16px}.action-summary{min-height:22px}.action-buttons{width:100%}.action-buttons button{flex:1}.trust-grid{grid-template-columns:1fr;gap:0;padding:0 16px}.part-row{grid-template-columns:27px 1fr 30px 30px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* --- Mejoras Splitly & NotebookLM --- */
+.mode-selector-wrap{padding:22px 28px 0;background:rgba(255,255,255,.012);border-top:1px solid var(--border)}
+.mode-segmented{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode-button{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:14px;border:1px solid var(--border);background:#0e1014;color:var(--muted);cursor:pointer;text-align:left;transition:border-color .18s ease,background .18s ease,color .18s ease}
+.mode-button svg{width:22px;height:22px;flex:0 0 auto;color:var(--muted-2);transition:color .18s ease}
+.mode-button div{display:grid;gap:2px}
+.mode-button strong{font-size:13px;font-weight:700;color:#dfe3ea}
+.mode-button span{font-size:11px;color:var(--muted-2)}
+.mode-button:hover:not(.active){border-color:var(--border-strong);background:#13161c;color:var(--text)}
+.mode-button.active{border-color:rgba(166,255,77,.45);background:rgba(166,255,77,.06);color:var(--text);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 4px 20px rgba(166,255,77,.08)}
+.mode-button.active svg{color:var(--accent)}
+.mode-button.active strong{color:var(--accent)}
+.mode-hint{margin:12px 0 0;padding:10px 14px;border-radius:10px;font-size:11px;line-height:1.5;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);color:var(--muted)}
+.mode-hint.highlight{background:rgba(166,255,77,.04);border-color:rgba(166,255,77,.18);color:#d2e8b8}
+.mode-hint strong{color:var(--text)}
+.presets-row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 2px}
+.preset-chip{border:1px solid var(--border);border-radius:99px;background:rgba(255,255,255,.03);color:var(--muted);font-size:11px;font-weight:600;padding:4px 10px;cursor:pointer;transition:all .15s ease}
+.preset-chip:hover:not(:disabled){border-color:var(--border-strong);background:rgba(255,255,255,.08);color:var(--text)}
+.preset-chip.active{border-color:rgba(166,255,77,.4);background:rgba(166,255,77,.09);color:var(--accent);font-weight:700}
+.danger-button{min-height:39px;border-radius:11px;font-size:11px;font-weight:700;cursor:pointer;border:1px solid rgba(255,117,110,.35);background:rgba(255,117,110,.1);color:var(--danger);display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:0 14px;transition:all .15s ease}
+.danger-button:hover{background:var(--danger);color:#100606}
+.danger-button svg{width:15px;height:15px}
+.warn-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:6px;background:rgba(255,214,107,.12);color:var(--warning);border:1px solid rgba(255,214,107,.25);font-size:9px;font-weight:700}
+.estimate-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:6px;background:rgba(166,255,77,.08);color:var(--accent);border:1px solid rgba(166,255,77,.2);font-size:9px;font-weight:700}
+.pill-audio{background:rgba(77,157,255,.12);color:#8ac0ff;border-color:rgba(77,157,255,.28)}
+
+@media(max-width:760px){
+  .mode-segmented{grid-template-columns:1fr;gap:8px}
+  .mode-selector-wrap{padding:16px 16px 0}
+  .presets-row{gap:4px}
+  .preset-chip{font-size:10px;padding:3px 8px}
+}
