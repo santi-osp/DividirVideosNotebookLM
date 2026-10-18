@@ -1,0 +1,149 @@
+{
+  "app": {
+    "title": "Splitly — Private Video Splitter & Audio Extractor",
+    "description": "Split large videos by size or extract lightweight audio for NotebookLM, Discord, or WhatsApp. 100% private, runs entirely in your browser.",
+    "brandName": "Splitly",
+    "privacyPill": "100% Local Processing",
+    "githubLink": "View on GitHub",
+    "heroEyebrow": "Private · Fast · No Server Uploads",
+    "heroTitle": "Split videos. Extract audio.",
+    "heroTitleHighlight": "Keep your files private.",
+    "heroSubtitle": "Split videos by file size or extract lightweight M4A audio for NotebookLM, Discord, WhatsApp, or email — all processed directly on your device."
+  },
+  "modes": {
+    "title": "Processing Mode",
+    "video": {
+      "title": "Split Video",
+      "subtitle": "Split video parts preserving picture & sound",
+      "hint": "Splits the video into parts according to your size limit, preserving the original video and audio streams without re-encoding whenever possible."
+    },
+    "audio": {
+      "title": "Extract Audio",
+      "subtitle": "High-fidelity M4A / AAC audio for NotebookLM & sharing",
+      "hint": "Extracts high-fidelity AAC audio in a compact M4A container (~30–45 MB for a 1.5-hour recording). Perfect for NotebookLM source limits, transcripts, and mobile listening."
+    }
+  },
+  "dropzone": {
+    "title": "Drop your videos here",
+    "browse": "browse files",
+    "help": "or {browse} from your computer",
+    "hint": "MP4, MOV, MKV, WebM, AVI, M4V · up to ~2 GB per file · processed locally",
+    "dragOver": "Drop files to add to queue"
+  },
+  "controls": {
+    "maxSizeLabel": "Maximum part size",
+    "decreaseSize": "Decrease size by 10 MB",
+    "increaseSize": "Increase size by 10 MB",
+    "unit": "MB",
+    "sizeHelp": "A small safety margin is applied to keep each piece strictly within platform limits.",
+    "customSize": "Custom Size",
+    "presets": {
+      "notebooklm": "NotebookLM (190 MB)",
+      "discord": "Discord (25 MB)",
+      "whatsapp16": "WhatsApp (16 MB)",
+      "whatsapp64": "WhatsApp Doc (64 MB)",
+      "email": "Email (25 MB)"
+    },
+    "processingLabel": "Concurrency",
+    "concurrency1": "1 at a time",
+    "concurrency2": "2 in parallel",
+    "concurrencyHelp": "Parallel processing requires more browser RAM. 1 at a time is strongly recommended for files over 300 MB."
+  },
+  "queue": {
+    "kicker": "Queue",
+    "title": "Your files",
+    "titleCount": "{count, plural, one {# video} other {# videos}}",
+    "clear": "Clear queue",
+    "empty": "No videos added yet",
+    "status": {
+      "queued": "Queued",
+      "preparing": "Preparing engine",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Error",
+      "cancelling": "Cancelling",
+      "cancelled": "Cancelled"
+    },
+    "statusText": {
+      "readyVideo": "Ready to split",
+      "readyAudio": "Ready to extract audio",
+      "preparingEngine": "Initializing WebAssembly engine…",
+      "loadingFile": "Copying file to local memory…",
+      "extractingAudio": "Extracting audio track (AAC)…",
+      "audioSplitting": "Audio exceeds limit, splitting parts…",
+      "creatingPart": "Creating part {part} of ~{total}…",
+      "adjustingPart": "Adjusting part {part} to stay within limit…",
+      "partsCreated": "{count, plural, one {1 part created} other {# parts created}}",
+      "audioReady": "{count, plural, one {1 audio file ready} other {# audio files ready}}",
+      "videoReady": "{count, plural, one {1 video part ready} other {# video parts ready}}",
+      "cancelledByUser": "Cancelled by user"
+    },
+    "remove": "Remove video",
+    "preview": "Preview",
+    "download": "Download",
+    "downloadAll": "{count, plural, one {Download result} other {Download all # parts}}",
+    "audioTag": "Audio M4A",
+    "partIndex": "Part {index}",
+    "largeFileWarn": "Large file (>800 MB): runs best with 1 at a time to prevent memory exhaustion",
+    "analyzing": "Analyzing…"
+  },
+  "actions": {
+    "summaryEmpty": "Add one or more videos to get started",
+    "summaryProcessing": "Processing {active, plural, one {1 video} other {# videos}} · Keep this tab open",
+    "summaryCompleted": "All finished · {count, plural, one {1 file completed} other {# files completed}}",
+    "summaryReady": "{count, plural, one {1 video} other {# videos}} ready · {size} total",
+    "addMore": "Add more files",
+    "process": "Split videos",
+    "processAudio": "Extract audio",
+    "processRemaining": "Process remaining ({count})",
+    "processingBtn": "Processing…",
+    "cancel": "Cancel",
+    "cancelling": "Cancelling…"
+  },
+  "trust": {
+    "private": {
+      "title": "Your files never leave your device",
+      "description": "All conversion happens right in your browser via WebAssembly. Zero video bytes are sent to any cloud or remote server."
+    },
+    "notebooklm": {
+      "title": "Optimized for NotebookLM",
+      "description": "Extract crystal-clear audio that fits into a single source upload, saving quota and processing time."
+    },
+    "batch": {
+      "title": "Individual or Batch Queue",
+      "description": "Process a single meeting recording or queue dozens of lecture videos at your own pace."
+    }
+  },
+  "preview": {
+    "kicker": "Preview",
+    "close": "Close preview dialog",
+    "unsupported": "Your browser cannot preview this specific format directly, but you can download it to play locally."
+  },
+  "toasts": {
+    "rejectedFiles": "{count, plural, one {1 non-video file was skipped.} other {# non-video files were skipped.}}",
+    "tooLarge": "{count, plural, one {1 file exceeds the browser ~2 GB memory limit.} other {# files exceed the browser ~2 GB memory limit.}}",
+    "cancelled": "Processing cancelled.",
+    "completedSuccess": "{count, plural, one {Successfully processed 1 file.} other {Successfully processed # files.}}",
+    "partialSuccess": "{completed} processed successfully, {failed} encountered an error.",
+    "audioExtracted": "Audio extracted successfully.",
+    "videosSplit": "Videos split successfully.",
+    "downloadStarted": "Starting {count, plural, one {download} other {# downloads}}…"
+  },
+  "errors": {
+    "generic": "Could not process this video. Please check the file format or try again.",
+    "oom": "Browser ran out of memory. Try switching to '1 at a time', close background tabs, or use a smaller file.",
+    "network": "Could not download FFmpeg WebAssembly core. Check your internet connection and reload.",
+    "noAudioTrack": "This video file does not contain an audio track to extract.",
+    "unsupportedFormat": "This file format or codec is not supported by WebAssembly FFmpeg.",
+    "sizeLimitExceeded": "Could not fit segment under {maxMb} MB even with maximum adjustments.",
+    "zeroOutputs": "No valid output files could be generated.",
+    "cancelled": "Operation cancelled."
+  },
+  "language": {
+    "selector": "Language",
+    "en": "English",
+    "es": "Spanish",
+    "switchToEn": "Switch to English",
+    "switchToEs": "Cambiar a Español"
+  }
+}

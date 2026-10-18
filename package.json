@@ -1,1 +1,44 @@
-{"name":"video-split-studio","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"vite","build":"vite build","preview":"vite preview"},"dependencies":{"@ffmpeg/ffmpeg":"0.12.15","@ffmpeg/util":"0.12.2"},"devDependencies":{"vite":"^7.1.3"}}
+{
+  "name": "splitly",
+  "version": "2.0.0",
+  "description": "Split videos. Extract audio. Keep your files private. 100% client-side WebAssembly media utility.",
+  "private": false,
+  "type": "module",
+  "homepage": "https://santi-osp.github.io/DividirVideosNotebookLM/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santi-osp/DividirVideosNotebookLM.git"
+  },
+  "author": "Santiago Ospina Arango (https://github.com/santi-osp)",
+  "license": "MIT",
+  "keywords": [
+    "ffmpeg",
+    "webassembly",
+    "wasm",
+    "video-splitter",
+    "audio-extractor",
+    "notebooklm",
+    "privacy-first",
+    "client-side"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:i18n": "node scripts/check-i18n.js",
+    "check:docs": "node scripts/check-docs.js",
+    "screenshots": "node scripts/capture-screenshots.js",
+    "fixtures": "node scripts/generate-test-media.js"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "0.12.15",
+    "@ffmpeg/util": "0.12.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2",
+    "vite": "^7.1.3",
+    "vitest": "^4.1.4"
+  }
+}
