@@ -1,0 +1,35 @@
+name: Feature Request
+description: Propose a new feature, improvement, or workflow optimization for Splitly.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: Is your feature request related to a specific limitation or user friction?
+      placeholder: e.g., When splitting videos for a specific platform, I need a preset for...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions Considered
+      description: Any alternative options or workarounds you have considered.
+  - type: dropdown
+    id: context
+    attributes:
+      label: Area of Splitly
+      options:
+        - Audio Extraction / Codecs
+        - Video Splitting & Part Boundaries
+        - UI / UX & Design
+        - Internationalization (i18n)
+        - Performance & Memory Management
+        - Documentation

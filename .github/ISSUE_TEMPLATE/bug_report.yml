@@ -1,0 +1,66 @@
+name: Bug Report
+description: Report a reproducible defect or unexpected error in Splitly.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please verify that your files stay local and no confidential data is included.
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & Version
+      description: e.g., Chrome 130, Firefox 132, Safari 18, Edge 130
+      placeholder: Chrome 130
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: e.g., Windows 11, macOS Sequoia, Ubuntu 24.04
+      placeholder: Windows 11
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Mode used
+      options:
+        - Split Video
+        - Extract Audio (NotebookLM)
+    validations:
+      required: true
+  - type: textarea
+    id: file_details
+    attributes:
+      label: Video / Audio Details
+      description: Container format, rough size, duration, codecs (e.g., MP4 H.264 + AAC, 1.2 GB, 1h 15m). Do NOT share confidential files.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step description of what you did.
+      placeholder: |
+        1. Open Splitly on Chrome.
+        2. Drag and drop a 500 MB MP4 file.
+        3. Select 'Extract Audio'.
+        4. Click 'Extract audio'.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior & Error Messages
+      description: What happened instead? Include console errors or visible toast messages.
+    validations:
+      required: true

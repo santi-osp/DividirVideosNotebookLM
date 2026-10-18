@@ -1,13 +1,34 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090a0d">
-  <meta name="description" content="Divide videos grandes o extrae solo el audio para NotebookLM sin subirlos a ningún servidor. 100% privado y local.">
-  <title>Splitly — Divisor y Extractor de Audio para NotebookLM</title>
+  <meta name="description" content="Split large videos by size or extract lightweight audio for NotebookLM, Discord, or WhatsApp. 100% private, runs entirely in your browser.">
+  <title>Splitly — Private Video Splitter & Audio Extractor</title>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://santi-osp.github.io/DividirVideosNotebookLM/">
+  <meta property="og:title" content="Splitly — Private Video Splitter & Audio Extractor">
+  <meta property="og:description" content="Split large videos by size or extract lightweight audio for NotebookLM, Discord, or WhatsApp. 100% private, runs entirely in your browser.">
+  <meta property="og:image" content="./og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Splitly — Private Video Splitter & Audio Extractor">
+  <meta name="twitter:description" content="Split large videos by size or extract lightweight audio for NotebookLM, Discord, or WhatsApp. 100% private, runs entirely in your browser.">
+  <meta name="twitter:image" content="./og-image.png">
+
+  <!-- Favicons & App Icons -->
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="./favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="./src/styles.css">
+
+  <!-- Import Maps for Client & Worker Dependencies -->
   <script type="importmap">
   {
     "imports": {
@@ -18,5 +39,7 @@
   </script>
   <script type="module" src="./src/main.js"></script>
 </head>
-<body><div id="app"></div></body>
+<body>
+  <div id="app"></div>
+</body>
 </html>
