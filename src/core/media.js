@@ -144,6 +144,9 @@ export function estimateOutput({ mode, fileSize, duration, maxMb }) {
  * Probes video duration using HTML5 <video> element with a safe timeout
  */
 export async function probeMetadata(file, timeoutMs = 4000) {
+  if (typeof document === 'undefined') {
+    return NaN;
+  }
   return new Promise(resolve => {
     let resolved = false;
     let timer = null;

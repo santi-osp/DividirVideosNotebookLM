@@ -23,13 +23,18 @@ const listeners = new Set();
  */
 export function detectInitialLanguage() {
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && SUPPORTED_LANGS.includes(saved)) {
-      return saved;
+    if (typeof localStorage !== 'undefined') {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved && SUPPORTED_LANGS.includes(saved)) {
+        return saved;
+      }
     }
   } catch {}
 
-  const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  let navLang = '';
+  if (typeof navigator !== 'undefined') {
+    navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  }
   if (navLang.startsWith('es')) {
     return 'es';
   }
@@ -59,7 +64,9 @@ export function setLanguage(lang) {
   currentLang = lang;
 
   try {
-    localStorage.setItem(STORAGE_KEY, lang);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(STORAGE_KEY, lang);
+    }
   } catch {}
 
   syncDocumentMetadata();
